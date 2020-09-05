@@ -6,6 +6,6 @@ import 'package:json_annotation/json_annotation.dart';
 class BreedResponse {
   @JsonKey(name: 'message')
   String urlImage;
-  BreedResponse(this.urlImage);
 
+  BreedResponse(this.urlImage);
 }

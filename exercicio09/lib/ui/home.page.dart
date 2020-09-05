@@ -30,10 +30,10 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/paw.jpg"),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.06), BlendMode.dstIn)
-          ),
+              image: AssetImage("assets/images/paw.jpg"),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.06), BlendMode.dstIn)),
         ),
         child: Column(
           children: [

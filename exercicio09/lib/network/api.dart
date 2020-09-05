@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:exercicio09/model/breed.response.dart';
 
 class Api {
   Dio dio = Dio();
