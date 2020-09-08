@@ -53,14 +53,72 @@ class _VehicleDetailPageState extends State<VehicleDetailPage> {
               elevation: 2,
               child: Container(
                 width: double.infinity,
+                height: 250,
                 padding: const EdgeInsets.only(
                   top: 25,
                   left: 15,
                   bottom: 25,
                 ),
-                child: Text(
-                  _vehicleDetail.name,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      _vehicleDetail.name,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 25),
+                    Text(
+                      'Year model: ${_vehicleDetail.anoModelo}',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Text(
+                      'Fuel: ${_vehicleDetail.combustivel}',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Text(
+                      'Brand: ${_vehicleDetail.marca}',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Value: ',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 18,
+                          ),
+                        ),
+                        Text(
+                          '${_vehicleDetail.preco}',
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Reference: ${_vehicleDetail.referencia}',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
