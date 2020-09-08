@@ -1,5 +1,8 @@
 import 'package:exercicio10/ui/pages/home.page.dart';
 import 'package:exercicio10/ui/pages/search_brand.page.dart';
+import 'package:exercicio10/ui/pages/search_model.page.dart';
+import 'package:exercicio10/ui/pages/search_year.page.dart';
+import 'package:exercicio10/ui/pages/vehicle_detail.page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,6 +16,12 @@ class MyApp extends StatelessWidget {
     HomePage.route: (BuildContext context) => HomePage(),
     SearchBrandPage.route: (BuildContext context) =>
         SearchBrandPage(ModalRoute.of(context).settings.arguments),
+    SearchModelPage.route: (BuildContext context) =>
+        SearchModelPage(ModalRoute.of(context).settings.arguments),
+    SearchYearPage.route: (BuildContext context) =>
+        SearchYearPage(ModalRoute.of(context).settings.arguments),
+    VehicleDetailPage.route: (BuildContext context) =>
+        VehicleDetailPage(ModalRoute.of(context).settings.arguments),
   };
 
   @override

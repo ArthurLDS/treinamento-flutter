@@ -1,7 +1,10 @@
-import 'package:exercicio10/enum/vehicle_type.enum.dart';
-import 'package:exercicio10/model/brand.model.dart';
+import 'package:exercicio10/model/enum/vehicle_type.enum.dart';
+import 'package:exercicio10/model/vehiclebrand/brand.model.dart';
 import 'package:exercicio10/service/api.service.dart';
+import 'package:exercicio10/ui/pages/search_model.page.dart';
+import 'package:exercicio10/ui/widgets/card_list.dart';
 import 'package:exercicio10/ui/widgets/search_box.widget.dart';
+import 'package:exercicio10/util/vehicle.util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,51 +48,33 @@ class _SearchBrandPageState extends State<SearchBrandPage> {
     });
   }
 
-  String _getVehicleType() {
-    switch (args.vehicleType) {
-      case VehicleType.CAR:
-        {
-          return "Cars";
-        }
-        break;
-      case VehicleType.MOTORCYCLE:
-        {
-          return "Motorcycles";
-        }
-        break;
-      default:
-        {
-          return "Trucks";
-        }
-        break;
-    }
-  }
+  String _getVehicleType() => VehicleUtil.getVehicleTypeName(args.vehicleType);
 
   _showBrandList() {
     return ListView.builder(
       itemBuilder: (BuildContext context, int position) {
-        return Card(
-          elevation: 2,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 16,
-              left: 15,
-              bottom: 16,
-            ),
-            child: Text(
-              _brandFiltredList[position].name,
-              style: TextStyle(fontSize: 15),
-            ),
-          ),
+        Brand brand = _brandFiltredList[position];
+        return CardList(
+          title: brand.fipeName,
+          onPress: () => _onPressBrand(brand.id.toString(), brand.fipeName),
         );
       },
       itemCount: _brandFiltredList.length,
     );
   }
 
+  _onPressBrand(String id, String brandName) {
+    return Navigator.of(context).pushNamed(SearchModelPage.route,
+        arguments: SearchModelPageArgs(
+            vehicleBrandId: id, vehicleBrandName: brandName));
+  }
+
   _onChangeBrand(value) {
     setState(() {
-      _brandFiltredList = _brandOriginalList.where((brand) => brand.name.toUpperCase().contains(value.toString().toUpperCase())).toList();
+      _brandFiltredList = _brandOriginalList
+          .where((brand) =>
+              brand.name.toUpperCase().contains(value.toString().toUpperCase()))
+          .toList();
     });
   }
 
@@ -100,7 +85,7 @@ class _SearchBrandPageState extends State<SearchBrandPage> {
         title: Text(_getVehicleType()),
       ),
       body: Container(
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(8),
         child: Column(
           children: [
             SearchBox(

@@ -10,7 +10,7 @@ Brand _$BrandFromJson(Map<String, dynamic> json) {
   return Brand(
     json['key'] as String,
     json['id'] as int,
-    json['fipeName'] as String,
+    json['fipe_name'] as String,
     json['name'] as String,
   );
 }
@@ -18,6 +18,6 @@ Brand _$BrandFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$BrandToJson(Brand instance) => <String, dynamic>{
       'key': instance.key,
       'id': instance.id,
-      'fipeName': instance.fipeName,
+      'fipe_name': instance.fipeName,
       'name': instance.name,
     };

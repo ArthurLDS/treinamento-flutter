@@ -1,4 +1,4 @@
-import 'package:exercicio10/enum/vehicle_type.enum.dart';
+import 'package:exercicio10/model/enum/vehicle_type.enum.dart';
 import 'package:exercicio10/ui/pages/search_brand.page.dart';
 import 'package:exercicio10/ui/widgets/button_menu.widget.dart';
 import 'package:flutter/cupertino.dart';

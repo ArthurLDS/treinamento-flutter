@@ -6,6 +6,7 @@ part 'brand.model.g.dart';
 class Brand {
   final String key;
   final int id;
+  @JsonKey(name: 'fipe_name')
   final String fipeName;
   final String name;
 
@@ -16,5 +17,8 @@ class Brand {
     this.name,
   );
 
-  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
+  factory Brand.fromJson(Map<String, dynamic> json) =>
+      _$BrandFromJson(json);
+
+
 }
